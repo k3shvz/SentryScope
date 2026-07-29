@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>SentryScope — OSINT Footprinting Platform</title>
+    <meta
+      name="description"
+      content="SentryScope helps security teams map their organization's public digital footprint using only open-source intelligence."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      (function(){
+        try {
+          var saved = localStorage.getItem('sentryscope_theme');
+          var id = saved || 'cyber';
+          var r = document.documentElement;
+          var t = {
+            cyber: { base:'#070B14','base-soft':'#0B1120',card:'#101827','card-hover':'#141F33',border:'#1E293B','border-strong':'#334155',accent:'#00E5FF','accent-dim':'#00A8BF','accent-glow':'rgba(0,229,255,0.25)',secondary:'#4ADE80','secondary-dim':'#2FAE64','secondary-glow':'rgba(74,222,128,0.2)',danger:'#FF5D73','danger-dim':'#E64C5F','danger-glow':'rgba(255,93,115,0.2)',warning:'#F59E0B','warning-dim':'#D97706','warning-glow':'rgba(245,158,11,0.2)',text:'#F8FAFC','text-muted':'#94A3B8','text-faint':'#5B6B85',surface:'rgba(16,24,39,0.6)','surface-border':'rgba(148,163,184,0.08)' },
+            midnight: { base:'#0A0F1E','base-soft':'#0F1629',card:'#131C31','card-hover':'#182440',border:'#1E2D4A','border-strong':'#2A3F66',accent:'#60A5FA','accent-dim':'#3B82F6','accent-glow':'rgba(96,165,250,0.25)',secondary:'#A78BFA','secondary-dim':'#8B5CF6','secondary-glow':'rgba(167,139,250,0.2)',danger:'#F87171','danger-dim':'#EF4444','danger-glow':'rgba(248,113,113,0.2)',warning:'#FBBF24','warning-dim':'#F59E0B','warning-glow':'rgba(251,191,36,0.2)',text:'#EFF6FF','text-muted':'#94A3B8','text-faint':'#64748B',surface:'rgba(19,28,49,0.65)','surface-border':'rgba(148,163,184,0.08)' },
+            obsidian: { base:'#050505','base-soft':'#0A0A0A',card:'#111111','card-hover':'#1A1A1A',border:'#262626','border-strong':'#404040',accent:'#F59E0B','accent-dim':'#D97706','accent-glow':'rgba(245,158,11,0.25)',secondary:'#E5E5E5','secondary-dim':'#A3A3A3','secondary-glow':'rgba(229,229,229,0.15)',danger:'#EF4444','danger-dim':'#DC2626','danger-glow':'rgba(239,68,68,0.2)',warning:'#FBBF24','warning-dim':'#F59E0B','warning-glow':'rgba(251,191,36,0.2)',text:'#FAFAFA','text-muted':'#A3A3A3','text-faint':'#525252',surface:'rgba(17,17,17,0.7)','surface-border':'rgba(255,255,255,0.06)' },
+            forest: { base:'#07100A','base-soft':'#0B170E',card:'#0F1E14','card-hover':'#132A1B',border:'#1A3322','border-strong':'#264D33',accent:'#34D399','accent-dim':'#10B981','accent-glow':'rgba(52,211,153,0.25)',secondary:'#A3E635','secondary-dim':'#84CC16','secondary-glow':'rgba(163,230,53,0.2)',danger:'#F87171','danger-dim':'#EF4444','danger-glow':'rgba(248,113,113,0.2)',warning:'#FCD34D','warning-dim':'#F59E0B','warning-glow':'rgba(252,211,77,0.2)',text:'#ECFDF5','text-muted':'#86EFAC','text-faint':'#4ADE80',surface:'rgba(15,30,20,0.6)','surface-border':'rgba(134,239,172,0.08)' },
+            light: { base:'#F8FAFC','base-soft':'#F1F5F9',card:'#FFFFFF','card-hover':'#F8FAFC',border:'#E2E8F0','border-strong':'#CBD5E1',accent:'#2563EB','accent-dim':'#1D4ED8','accent-glow':'rgba(37,99,235,0.15)',secondary:'#059669','secondary-dim':'#047857','secondary-glow':'rgba(5,150,105,0.15)',danger:'#DC2626','danger-dim':'#B91C1C','danger-glow':'rgba(220,38,38,0.12)',warning:'#D97706','warning-dim':'#B45309','warning-glow':'rgba(217,119,6,0.12)',text:'#0F172A','text-muted':'#475569','text-faint':'#94A3B8',surface:'rgba(255,255,255,0.7)','surface-border':'rgba(0,0,0,0.06)' }
+          }[id];
+          if (!t) return;
+          r.style.setProperty('--theme-base', t.base);
+          r.style.setProperty('--theme-base-soft', t['base-soft']);
+          r.style.setProperty('--theme-card', t.card);
+          r.style.setProperty('--theme-card-hover', t['card-hover']);
+          r.style.setProperty('--theme-border', t.border);
+          r.style.setProperty('--theme-border-strong', t['border-strong']);
+          r.style.setProperty('--theme-accent', t.accent);
+          r.style.setProperty('--theme-accent-dim', t['accent-dim']);
+          r.style.setProperty('--theme-accent-glow', t['accent-glow']);
+          r.style.setProperty('--theme-secondary', t.secondary);
+          r.style.setProperty('--theme-secondary-dim', t['secondary-dim']);
+          r.style.setProperty('--theme-secondary-glow', t['secondary-glow']);
+          r.style.setProperty('--theme-danger', t.danger);
+          r.style.setProperty('--theme-danger-dim', t['danger-dim']);
+          r.style.setProperty('--theme-danger-glow', t['danger-glow']);
+          r.style.setProperty('--theme-warning', t.warning);
+          r.style.setProperty('--theme-warning-dim', t['warning-dim']);
+          r.style.setProperty('--theme-warning-glow', t['warning-glow']);
+          r.style.setProperty('--theme-text', t.text);
+          r.style.setProperty('--theme-text-muted', t['text-muted']);
+          r.style.setProperty('--theme-text-faint', t['text-faint']);
+          r.style.setProperty('--theme-surface', t.surface);
+          r.style.setProperty('--theme-surface-border', t['surface-border']);
+          r.setAttribute('data-theme', id);
+        } catch(e){}
+      })();
+    </script>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
